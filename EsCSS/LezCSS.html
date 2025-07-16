@@ -1,0 +1,43 @@
+<!-- 1 - html linguaggio che dispone il contenuto -->
+<!-- 2 - CSS linguaggio che personalizza il contenuto -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="miostile.css" rel="stylesheet">
+<style>
+    h1{
+        color: green;
+    }
+    div{
+        color: blue;
+    }
+    .colordiv{
+        color: royalblue;
+    }
+    .test{
+        color: orange;
+    }
+</style>
+ </head>
+ <body>
+    <!-- CSS Foglio di stile a cascata -->
+     <!-- 3 modi:
+        inline ---- DENTRO IL TAG ---- tramite attributo style
+        blocco ---- nella pagina dell'head ---- tramite tag style
+        file esterno ---- file.css
+     -->
+        <!--  -->
+    <!-- HTML  --> <!-- modo ormai obsoleto che non si usa ma che si usava in html-->
+     <h1><font color="red">Titolo del mio sito</font></h1> 
+     <!-- CSS ...pulizia -->
+      <h1 style="color: red;">Titolo del mio sito</h1>
+      <h1>Secondo Titolo</h1>
+      <h1 class="pluto">Terzo Titolo</h1>
+      <div class="colordiv">Mio div</div>
+      <div class="pluto pippo test" style="padding: 40px; margin: 100px; border: 20px orange solid; border-radius: 40px;">Mio secondo div</div>
+
+ </body>
+ </html>

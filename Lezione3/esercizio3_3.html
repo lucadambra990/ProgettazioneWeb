@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="1"></div>
+    <script>
+        let num=prompt("Inserisci un numero di secondi da convertire in orario")
+        let ore = Math.floor(num/3600)
+        let minuti = Math.floor(((num%3600)/60))
+        let secondi = num%60
+
+        let orario=ore + "ore" + minuti + "minuti" + secondi + "secondi"
+        document.getElementById("1").innerHTML=orario
+    </script>
+</body>
+</html>

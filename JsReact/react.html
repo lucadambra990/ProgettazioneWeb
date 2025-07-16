@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big {
+            font-size: 5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        const rootElement = document.querySelector("#root")
+        const root = ReactDOM.createRoot(rootElement)
+        console.log(rootElement);
+        const e = React.createElement;
+        const h1 = e(
+            "h1",
+            {
+                key: "h1",
+                style: {
+                    color: "red",
+                    border: "1px #000 solid",
+                    padding: "5px"
+                },
+                className: "big",
+                onClick: (e) => { console.log(e.target) }
+            },
+            "Lista skills"
+        );
+
+
+        const ul = e("ul", { key: "ul" }, [
+            e("li", { key: "php" }, "PHP"),
+            e("li", { key: "js" }, "JavaScript"),
+            e("li", { key: "python" }, "python")
+        ]);
+        const main = e("main", {}, [h1, ul]);
+        root.render(main)
+    </script>
+
+</body>
+
+</html>
