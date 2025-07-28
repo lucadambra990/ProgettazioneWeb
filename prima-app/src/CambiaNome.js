@@ -1,12 +1,12 @@
 import { useState } from "react"; 
 
 const CambiaNome = () =>  {
-    const [nome, setNome] = useState("silvia");
+    const [nome, setNome] = useState("Luca");
     const cambia = () => {
-        if(nome === "silvia"){
-            setNome("Camilla")
+        if(nome === "Luca"){
+            setNome("Manuel")
         }else{
-            setNome("silvia")
+            setNome("Luca")
         }
 
     }

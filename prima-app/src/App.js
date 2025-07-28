@@ -1,6 +1,8 @@
 import './App.css';
 import CambiaNome from './CambiaNome';
+import FetchComponent from './FetchComponent';
 import LoginForm from './LoginForm';
+import RenderCondizionale from './renderCondizionale';
 
 
 function App() {
@@ -8,6 +10,8 @@ function App() {
     <div className="App">
       <CambiaNome></CambiaNome>
       <LoginForm></LoginForm>
+      <RenderCondizionale></RenderCondizionale>
+      <FetchComponent></FetchComponent>
     </div>
   );
 }
