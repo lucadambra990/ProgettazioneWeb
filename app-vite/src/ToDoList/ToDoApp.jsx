@@ -1,47 +1,71 @@
-import { useEffect, useState } from 'react';
-import TodoForm from './TodoForm'
-import TodoList from './TodoList'
+import { useEffect, useState } from "react";
+import ToDoForm from "./ToDoForm";
+import ToDoList from "./ToDoList";
 
-const API_URL="/api/tasks";
-const TodoApp = () => {
-    const [tasks,setTasks]=useState([]);
-    const [loading,setLoanding]=useState("");
-    const [error,setError]=useState(null);
-   
-    const getTasks=async ()=>{
-        try{
-            const response=await fetch(API_URL);
-            const data=await response.json();
-            if(!response.ok) throw Error("Errore nella fetch");
-            setTasks(data);
-        }catch(err){
-            setError(err)
-        }finally{
-            setLoanding(false);
-        }
-    }
-    const deleteTask=async (id)=>{
-        await fetch(API_URL+"/"+id,{method:"DELETE"});
-          getTasks();
-    }
+const API_URL = "/api/tasks";
+const ToDoApp = () => {
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoanding] = useState("");
+  const [error, setError] = useState(null);
 
-    const toggleTask=async (id,completed)=>{
-        await fetch(API_URL+"/"+id, {
-            method:"PATCH",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({completed:!completed})
-        });
-        getTasks();
+  const getTasks = async () => {
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw Error("Errore nella fetch");
+      const data = await response.json();
+
+      setTasks(data);
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoanding(false);
     }
-    useEffect(()=>{
-        getTasks()
-    },[]);
+  };
+  const addTask = async (text) => {
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, completed: false }),
+    });
+    getTasks();
+  };
+  const deleteTask = async (id) => {
+    await fetch(API_URL + "/" + id, { method: "DELETE" });
+    getTasks();
+  };
+
+  const toggleTask = async (id, completed) => {
+    await fetch(API_URL + "/" + id, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ completed: !completed }),
+    });
+    getTasks();
+  };
+
+  const updateTask = async (id, text) => {
+    await fetch(API_URL + "/" + id, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+    getTasks();
+  };
+  useEffect(() => {
+    getTasks();
+  }, []);
   return (
-    <div>TodoApp
-        <TodoForm></TodoForm>
-        <TodoList tasks={tasks} onDeleteTask={deleteTask} onToggleTask={toggleTask}></TodoList>
+    <div>
+      TodoApp
+      <ToDoForm onAddTask={addTask}></ToDoForm>
+      <ToDoList
+        tasks={tasks}
+        onDeleteTask={deleteTask}
+        onToggleTask={toggleTask}
+        onUpdateTask={updateTask}
+      ></ToDoList>
     </div>
-  )
-}
+  );
+};
 
-export default TodoApp
+export default ToDoApp;

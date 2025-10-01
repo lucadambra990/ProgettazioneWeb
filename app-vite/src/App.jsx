@@ -4,20 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import UserAlbums from './UserAlbum'
 import UserCrud from './UserCrud'
-import TodoApp from './ToDoList/ToDoApp'
-import ToDoList from './ToDoList/ToDoList'
-import ToDoItem from './ToDoList/ToDoItem'
+import ToDoApp from './ToDoList/ToDoApp'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       {/* <UserAlbums></UserAlbums> */}
       {/* <UserCrud></UserCrud> */}
-      <TodoApp></TodoApp>
+      <ToDoApp></ToDoApp>
     </>
   )
 }
 
-export default App
+export default App;

@@ -56,12 +56,11 @@
     }
   ],
   "comments": [],
-
   "tasks": [
     {
       "id": "1",
       "text": "Imparare le basi di React",
-      "completed": true
+      "completed": false
     },
     {
       "id": "3",
@@ -71,6 +70,11 @@
     {
       "id": "8b55",
       "text": "qwe",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "text": " insieme",
       "completed": false
     }
   ]

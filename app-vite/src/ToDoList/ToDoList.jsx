@@ -1,16 +1,16 @@
 import React from 'react'
 import ToDoItem from './ToDoItem'
 
-const TodoList = ({ tasks, onDeleteTask }) => {
+const ToDoList = ({ tasks, onDeleteTask,onToggleTask ,onUpdateTask}) => {
     return (
       <ul className="list-group">
         {tasks.map((t) => {
           return (
-            <TodoItem key={t.id} task={t} onDeleteTask={onDeleteTask}></TodoItem>
+            <ToDoItem key={t.id} task={t} onDeleteTask={onDeleteTask} onToggleTask={onToggleTask} onUpdateTask={onUpdateTask}></ToDoItem>
           );
         })}
       </ul>
     );
   };
   
-  export default TodoList;
+  export default ToDoList;
