@@ -5,7 +5,7 @@ import './App.css'
 import UserAlbums from './UserAlbum'
 import UserCrud from './UserCrud'
 import ToDoApp from './ToDoList/ToDoApp'
-
+import ProvaRouter from './ToDoList/router/ProvaRouter'
 
 
 function App() {
@@ -14,7 +14,8 @@ function App() {
     <>
       {/* <UserAlbums></UserAlbums> */}
       {/* <UserCrud></UserCrud> */}
-      <ToDoApp></ToDoApp>
+      {/* <ToDoApp></ToDoApp> */}
+      <ProvaRouter></ProvaRouter>
     </>
   )
 }
