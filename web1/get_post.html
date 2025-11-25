@@ -6,8 +6,8 @@
     <title>Document</title>
     <style>
         .card{
-            background-color:skyblue;
-            border: 1px solid blueviolet;
+            background-color: #efefef;
+            border: 1px solid #c9c9c9;
             padding: 55px;
             border-radius: 15px;
             max-width: 300px;
@@ -45,11 +45,12 @@
                 const user=result[0];
                 div.innerHTML += "<small>" + user.name + "</small>";
                 const commenti=result[1];
-                div.innerHTML +="<ul>";
+              
+                  let itemUl=""
                 commenti.forEach(element => {
-                      div.innerHTML +="<li>"+element.name+"</li>"
+                     itemUl+="<li>"+element.name+"</li>"
                 });
-                 div.innerHTML +="</ul>";
+                 div.innerHTML +="<ul>"+itemUl+"</ul>";
           })
 
         //   fetch(urlUsers + post.userId)
