@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tasks"></div>
+    <input type="text" id="task">
+    <button type="button" id="1">Aggiungi task</button>
+    <script>
+  const URL_BASE = "https://todoapp-f2592-default-rtdb.europe-west1.firebasedatabase.app/tasks";
+
+  const div = document.querySelector("div");
+  const input = document.querySelector("input");
+  const btn = document.querySelector("button");
+
+  function leggiInput() {
+    return input.value.trim();
+  }
+
+  async function inviaTask(testo) {
+    const task = {testo: testo};
+
+    const res = await fetch(URL_BASE + ".json", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(task)
+    });
+
+ 
+  }
+  async function getTask(params) {
+    const response = await fetch(URL_BASE + ".json")
+    const dati=await response.json()
+    console.log(dati)
+    const tasks=Object.keys(dati).map(id=>({
+        id,
+        ...dati[id]
+    }))
+    console.log(tasks)
+    tasks.forEach(t=>{
+        document.querySelector("div").innerHTML+="<p>"+t.text+"<p>"
+    })
+  }
+  btn.addEventListener("click", async () => {
+    const testo = leggiInput();
+    if (!testo) return;
+
+    try {
+      const data = await inviaTask(testo);
+      console.log("Task salvata, id:", data);
+    } catch (err) {
+      console.error("Errore salvataggio:", err);
+    }
+  });
+</script>
+
+</body>
+</html>
